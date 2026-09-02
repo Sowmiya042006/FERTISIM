@@ -1,0 +1,14 @@
+{
+  "@@locale": "ta",
+  "welcomeToFertisim": "FERTISIM-க்கு வரவேற்கிறோம்",
+  "tagline": "ஆரோக்கியமான விவசாயத்திற்கு சிறந்த உர முடிவுகள்",
+  "farmerLogin": "விவசாயி உள்நுழைவு",
+  "enterRegisteredDetails": "பதிவு செய்த விவரங்களை உள்ளிடவும்",
+  "mobileOrEmail": "கைபேசி எண் அல்லது மின்னஞ்சல்",
+  "password": "கடவுச்சொல்",
+  "forgotPassword": "கடவுச்சொல்லை மறந்துவிட்டீர்களா?",
+  "login": "உள்நுழைக",
+  "loginWithOtp": "OTP மூலம் உள்நுழைக",
+  "newToFertisim": "FERTISIM-க்கு புதியவரா?",
+  "createAccount": "கணக்கை உருவாக்கவும்"
+}

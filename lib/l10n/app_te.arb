@@ -1,0 +1,14 @@
+{
+  "@@locale": "te",
+  "welcomeToFertisim": "FERTISIMకు స్వాగతం",
+  "tagline": "ఆరోగ్యకరమైన పొలాల కోసం మెరుగైన ఎరువుల నిర్ణయాలు",
+  "farmerLogin": "రైతు లాగిన్",
+  "enterRegisteredDetails": "మీ నమోదిత వివరాలను నమోదు చేయండి",
+  "mobileOrEmail": "మొబైల్ నంబర్ లేదా ఇమెయిల్",
+  "password": "పాస్‌వర్డ్",
+  "forgotPassword": "పాస్‌వర్డ్ మర్చిపోయారా?",
+  "login": "లాగిన్",
+  "loginWithOtp": "OTPతో లాగిన్",
+  "newToFertisim": "FERTISIMకు కొత్తవారా?",
+  "createAccount": "ఖాతా సృష్టించండి"
+}

@@ -1,0 +1,14 @@
+{
+  "@@locale": "en",
+  "welcomeToFertisim": "Welcome to FERTISIM",
+  "tagline": "Smarter fertilizer decisions for healthier farms",
+  "farmerLogin": "Farmer Login",
+  "enterRegisteredDetails": "Enter your registered details",
+  "mobileOrEmail": "Mobile number or email",
+  "password": "Password",
+  "forgotPassword": "Forgot password?",
+  "login": "Login",
+  "loginWithOtp": "Login with OTP",
+  "newToFertisim": "New to FERTISIM?",
+  "createAccount": "Create account"
+}

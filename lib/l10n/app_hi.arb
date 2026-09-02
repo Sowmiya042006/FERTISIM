@@ -1,0 +1,14 @@
+{
+  "@@locale": "hi",
+  "welcomeToFertisim": "FERTISIM में आपका स्वागत है",
+  "tagline": "स्वस्थ खेतों के लिए बेहतर उर्वरक निर्णय",
+  "farmerLogin": "किसान लॉगिन",
+  "enterRegisteredDetails": "अपनी पंजीकृत जानकारी दर्ज करें",
+  "mobileOrEmail": "मोबाइल नंबर या ईमेल",
+  "password": "पासवर्ड",
+  "forgotPassword": "पासवर्ड भूल गए?",
+  "login": "लॉगिन करें",
+  "loginWithOtp": "OTP से लॉगिन करें",
+  "newToFertisim": "FERTISIM पर नए हैं?",
+  "createAccount": "खाता बनाएँ"
+}
