@@ -1,3 +1,5 @@
+import 'l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
@@ -53,10 +55,7 @@ class WelcomeScreen extends StatelessWidget {
           gradient: LinearGradient(
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
-            colors: [
-              Color(0xFF1B5E20),
-              Color(0xFF66BB6A),
-            ],
+            colors: [Color(0xFF1B5E20), Color(0xFF66BB6A)],
           ),
         ),
         child: SafeArea(
@@ -65,11 +64,7 @@ class WelcomeScreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const Icon(
-                  Icons.eco,
-                  size: 110,
-                  color: Colors.white,
-                ),
+                const Icon(Icons.eco, size: 110, color: Colors.white),
                 const SizedBox(height: 24),
                 const Text(
                   'FERTISIM',
@@ -81,10 +76,13 @@ class WelcomeScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 12),
-                const Text(
-                  'Smart Fertilizer Reduction and\nCrop Performance Assessment',
+                Text(
+                  tr(
+                    context,
+                    'Smart Fertilizer Reduction and\nCrop Performance Assessment',
+                  ),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 18,
                     height: 1.5,
@@ -101,8 +99,7 @@ class WelcomeScreen extends StatelessWidget {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>
-                                const LanguageScreen(),
+                            builder: (context) => const LanguageScreen(),
                           ),
                         );
                       },
@@ -110,9 +107,9 @@ class WelcomeScreen extends StatelessWidget {
                         backgroundColor: Colors.white,
                         foregroundColor: const Color(0xFF1B5E20),
                       ),
-                      child: const Text(
-                        'Get Started',
-                        style: TextStyle(
+                      child: Text(
+                        tr(context, 'Get Started'),
+                        style: const TextStyle(
                           fontSize: 18,
                           fontWeight: FontWeight.bold,
                         ),

@@ -192,14 +192,14 @@ class _LoginScreenState extends State<LoginScreen> {
                         width: double.infinity,
                         height: 52,
                         child: OutlinedButton.icon(
-                         onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const OtpScreen(),
-    ),
-  );
-},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const OtpScreen(),
+                              ),
+                            );
+                          },
                           icon: const Icon(Icons.sms_outlined),
                           label: Text(text.loginWithOtp),
                           style: OutlinedButton.styleFrom(

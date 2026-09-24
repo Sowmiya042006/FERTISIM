@@ -1,6 +1,10 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
+
 import 'farm_analysis_screen.dart';
 import 'soil_upload_screen.dart';
+
 class SoilMethodScreen extends StatefulWidget {
   const SoilMethodScreen({super.key});
 
@@ -18,7 +22,7 @@ class _SoilMethodScreenState extends State<SoilMethodScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Farm Information'),
+        title: Text(tr(context, 'Farm Information')),
       ),
       body: SafeArea(
         child: Center(
@@ -28,9 +32,9 @@ class _SoilMethodScreenState extends State<SoilMethodScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Step 1 of 4',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Step 1 of 4'),
+                  style: const TextStyle(
                     color: Color(0xFF167447),
                     fontWeight: FontWeight.bold,
                   ),
@@ -44,28 +48,31 @@ class _SoilMethodScreenState extends State<SoilMethodScreen> {
                   color: Color(0xFF167447),
                 ),
                 const SizedBox(height: 30),
-                const Text(
-                  'Add Soil Information',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Add Soil Information'),
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Choose how you want to provide your soil-test values.',
-                  style: TextStyle(
-                    color: Colors.grey,
-                    fontSize: 15,
+                Text(
+                  tr(
+                    context,
+                    'Choose how you want to provide your soil-test values.',
                   ),
+                  style: const TextStyle(color: Colors.grey, fontSize: 15),
                 ),
                 const SizedBox(height: 28),
                 MethodCard(
-                  title: 'Upload Soil Health Card',
-                  subtitle: 'Upload a PDF or image of your soil report',
+                  title: tr(context, 'Upload Soil Health Card'),
+                  subtitle: tr(
+                    context,
+                    'Upload a PDF or image of your soil report',
+                  ),
                   icon: Icons.upload_file_rounded,
-                  badge: 'Recommended',
+                  badge: tr(context, 'Recommended'),
                   selected: selectedMethod == 'upload',
                   onTap: () {
                     setState(() {
@@ -75,8 +82,8 @@ class _SoilMethodScreenState extends State<SoilMethodScreen> {
                 ),
                 const SizedBox(height: 16),
                 MethodCard(
-                  title: 'Enter Values Manually',
-                  subtitle: 'Enter N, P, K, pH and organic carbon',
+                  title: tr(context, 'Enter Values Manually'),
+                  subtitle: tr(context, 'Enter N, P, K, pH and organic carbon'),
                   icon: Icons.edit_note_rounded,
                   selected: selectedMethod == 'manual',
                   onTap: () {
@@ -90,32 +97,32 @@ class _SoilMethodScreenState extends State<SoilMethodScreen> {
                   width: double.infinity,
                   height: 55,
                   child: FilledButton(
-                   onPressed: () {
-  if (selectedMethod == 'upload') {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const SoilUploadScreen(),
-      ),
-    );
-  } else {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const FarmAnalysisScreen(),
-      ),
-    );
-  }
-},
+                    onPressed: () {
+                      if (selectedMethod == 'upload') {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const SoilUploadScreen(),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FarmAnalysisScreen(),
+                          ),
+                        );
+                      }
+                    },
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF167447),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text(
-                      'Continue',
-                      style: TextStyle(
+                    child: Text(
+                      tr(context, 'Continue'),
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -161,9 +168,7 @@ class MethodCard extends StatelessWidget {
           color: selected ? const Color(0xFFE4F3E8) : Colors.white,
           borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: selected
-                ? const Color(0xFF167447)
-                : const Color(0xFFE0E0E0),
+            color: selected ? const Color(0xFF167447) : const Color(0xFFE0E0E0),
             width: selected ? 2 : 1,
           ),
           boxShadow: const [
@@ -222,18 +227,13 @@ class MethodCard extends StatelessWidget {
                   const SizedBox(height: 5),
                   Text(
                     subtitle,
-                    style: const TextStyle(
-                      color: Colors.grey,
-                      fontSize: 13,
-                    ),
+                    style: const TextStyle(color: Colors.grey, fontSize: 13),
                   ),
                 ],
               ),
             ),
             Icon(
-              selected
-                  ? Icons.radio_button_checked
-                  : Icons.radio_button_off,
+              selected ? Icons.radio_button_checked : Icons.radio_button_off,
               color: const Color(0xFF167447),
             ),
           ],

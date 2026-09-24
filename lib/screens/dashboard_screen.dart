@@ -1,6 +1,10 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
+
 import 'soil_method_screen.dart';
 import 'account_screens.dart';
+
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
@@ -17,14 +21,12 @@ class DashboardScreen extends StatelessWidget {
         ),
         actions: [
           IconButton(
-          onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const ProfileScreen(),
-    ),
-  );
-},
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ProfileScreen()),
+              );
+            },
             icon: const Icon(Icons.notifications_outlined),
           ),
           IconButton(
@@ -44,10 +46,7 @@ class DashboardScreen extends StatelessWidget {
                   padding: const EdgeInsets.all(22),
                   decoration: BoxDecoration(
                     gradient: const LinearGradient(
-                      colors: [
-                        Color(0xFF0B5D32),
-                        Color(0xFF3A9D5D),
-                      ],
+                      colors: [Color(0xFF0B5D32), Color(0xFF3A9D5D)],
                     ),
                     borderRadius: BorderRadius.circular(24),
                     boxShadow: const [
@@ -58,24 +57,27 @@ class DashboardScreen extends StatelessWidget {
                       ),
                     ],
                   ),
-                  child: const Row(
+                  child: Row(
                     children: [
                       Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              'Welcome, Farmer!',
-                              style: TextStyle(
+                              tr(context, 'Welcome, Farmer!'),
+                              style: const TextStyle(
                                 color: Colors.white,
                                 fontSize: 23,
                                 fontWeight: FontWeight.bold,
                               ),
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Text(
-                              'Make smarter fertilizer decisions for a healthier farm.',
-                              style: TextStyle(
+                              tr(
+                                context,
+                                'Make smarter fertilizer decisions for a healthier farm.',
+                              ),
+                              style: const TextStyle(
                                 color: Colors.white70,
                                 height: 1.4,
                               ),
@@ -83,8 +85,8 @@ class DashboardScreen extends StatelessWidget {
                           ],
                         ),
                       ),
-                      SizedBox(width: 15),
-                      Icon(
+                      const SizedBox(width: 15),
+                      const Icon(
                         Icons.agriculture_rounded,
                         color: Color(0xFFFFD66B),
                         size: 62,
@@ -93,9 +95,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 25),
-                const Text(
-                  'Start New Analysis',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Start New Analysis'),
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
@@ -106,17 +108,17 @@ class DashboardScreen extends StatelessWidget {
                   height: 58,
                   child: FilledButton.icon(
                     onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const SoilMethodScreen(),
-    ),
-  );
-},
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const SoilMethodScreen(),
+                        ),
+                      );
+                    },
                     icon: const Icon(Icons.analytics_outlined),
-                    label: const Text(
-                      'Analyze My Farm',
-                      style: TextStyle(
+                    label: Text(
+                      tr(context, 'Analyze My Farm'),
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -130,9 +132,9 @@ class DashboardScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 28),
-                const Text(
-                  'Explore Features',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Explore Features'),
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 21,
                     fontWeight: FontWeight.bold,
@@ -146,30 +148,30 @@ class DashboardScreen extends StatelessWidget {
                   crossAxisSpacing: 14,
                   mainAxisSpacing: 14,
                   childAspectRatio: 1.2,
-                  children: const [
+                  children: [
                     FeatureCard(
                       icon: Icons.science_outlined,
-                      title: 'Soil & Farm',
-                      subtitle: 'Enter soil and crop details',
-                      color: Color(0xFF2E7D32),
+                      title: tr(context, 'Soil & Farm'),
+                      subtitle: tr(context, 'Enter soil and crop details'),
+                      color: const Color(0xFF2E7D32),
                     ),
                     FeatureCard(
                       icon: Icons.auto_graph_rounded,
-                      title: 'AI Simulation',
-                      subtitle: 'Compare fertilizer plans',
-                      color: Color(0xFF1976D2),
+                      title: tr(context, 'AI Simulation'),
+                      subtitle: tr(context, 'Compare fertilizer plans'),
+                      color: const Color(0xFF1976D2),
                     ),
                     FeatureCard(
                       icon: Icons.compost_outlined,
-                      title: 'Organic Options',
-                      subtitle: 'View sustainable alternatives',
-                      color: Color(0xFFE08A00),
+                      title: tr(context, 'Organic Options'),
+                      subtitle: tr(context, 'View sustainable alternatives'),
+                      color: const Color(0xFFE08A00),
                     ),
                     FeatureCard(
                       icon: Icons.description_outlined,
-                      title: 'My Reports',
-                      subtitle: 'View and download reports',
-                      color: Color(0xFF7B4BB7),
+                      title: tr(context, 'My Reports'),
+                      subtitle: tr(context, 'View and download reports'),
+                      color: const Color(0xFF7B4BB7),
                     ),
                   ],
                 ),
@@ -231,10 +233,7 @@ class FeatureCard extends StatelessWidget {
           Text(
             subtitle,
             maxLines: 2,
-            style: const TextStyle(
-              color: Colors.grey,
-              fontSize: 12,
-            ),
+            style: const TextStyle(color: Colors.grey, fontSize: 12),
           ),
         ],
       ),

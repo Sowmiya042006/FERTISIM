@@ -1,3 +1,5 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -10,7 +12,7 @@ class ProfileScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('My Profile'),
+        title: Text(tr(context, 'My Profile')),
       ),
       body: Center(
         child: Container(
@@ -21,47 +23,50 @@ class ProfileScreen extends StatelessWidget {
               const CircleAvatar(
                 radius: 48,
                 backgroundColor: Color(0xFFE4F3E8),
-                child: Icon(
-                  Icons.person,
-                  size: 52,
-                  color: Color(0xFF167447),
-                ),
+                child: Icon(Icons.person, size: 52, color: Color(0xFF167447)),
               ),
               const SizedBox(height: 15),
-              const Text(
-                'Demo Farmer',
+              Text(
+                tr(context, 'Demo Farmer'),
                 textAlign: TextAlign.center,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Color(0xFF173D2A),
                   fontSize: 23,
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const Text(
-                'Manage your FERTISIM account',
+              Text(
+                tr(context, 'Manage your FERTISIM account'),
                 textAlign: TextAlign.center,
-                style: TextStyle(color: Colors.grey),
+                style: const TextStyle(color: Colors.grey),
               ),
               const SizedBox(height: 25),
-              const ProfileField(
+              ProfileField(
                 icon: Icons.person_outline,
-                title: 'Full Name',
-                value: 'Demo Farmer',
+                title: tr(context, 'Full Name'),
+                value: tr(context, 'Demo Farmer'),
               ),
-              const ProfileField(
+              ProfileField(
                 icon: Icons.phone_outlined,
-                title: 'Mobile Number',
+                title: tr(context, 'Mobile Number'),
                 value: '+91 98765 43210',
               ),
-              const ProfileField(
+              ProfileField(
                 icon: Icons.email_outlined,
-                title: 'Email Address',
+                title: tr(context, 'Email Address'),
                 value: 'farmer@example.com',
               ),
-              const ProfileField(
+              ProfileField(
                 icon: Icons.translate,
-                title: 'Preferred Language',
-                value: 'English',
+                title: tr(context, 'Preferred Language'),
+                value: {
+                  'en': 'English',
+                  'ta': 'தமிழ்',
+                  'hi': 'हिन्दी',
+                  'te': 'తెలుగు',
+                  'ml': 'മലയാളം',
+                  'kn': 'ಕನ್ನಡ',
+                }[Localizations.localeOf(context).languageCode]!,
               ),
               const SizedBox(height: 18),
               SizedBox(
@@ -69,15 +74,18 @@ class ProfileScreen extends StatelessWidget {
                 child: FilledButton.icon(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
+                      SnackBar(
                         content: Text(
-                          'Profile editing will connect with Firebase',
+                          tr(
+                            context,
+                            'Profile editing will connect with Firebase',
+                          ),
                         ),
                       ),
                     );
                   },
                   icon: const Icon(Icons.edit_outlined),
-                  label: const Text('Edit Profile'),
+                  label: Text(tr(context, 'Edit Profile')),
                   style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFF167447),
                   ),
@@ -122,10 +130,7 @@ class ProfileField extends StatelessWidget {
               children: [
                 Text(
                   title,
-                  style: const TextStyle(
-                    color: Colors.grey,
-                    fontSize: 12,
-                  ),
+                  style: const TextStyle(color: Colors.grey, fontSize: 12),
                 ),
                 const SizedBox(height: 3),
                 Text(
@@ -154,25 +159,25 @@ class SavedReportsScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Saved Reports'),
+        title: Text(tr(context, 'Saved Reports')),
       ),
       body: Center(
         child: Container(
           constraints: const BoxConstraints(maxWidth: 550),
           child: ListView(
             padding: const EdgeInsets.all(20),
-            children: const [
+            children: [
               ReportHistoryCard(
                 crop: 'Rice',
-                date: '27 August 2026',
-                reduction: 'Urea reduced by 10%',
-                savings: '₹1,700 savings',
+                date: '27-08-2026',
+                reduction: tr(context, 'Urea reduced by 10%'),
+                savings: tr(context, '₹1,700 savings'),
               ),
               ReportHistoryCard(
                 crop: 'Maize',
-                date: '20 August 2026',
-                reduction: 'DAP reduced by 15%',
-                savings: '₹2,150 savings',
+                date: '20-08-2026',
+                reduction: tr(context, 'DAP reduced by 15%'),
+                savings: tr(context, '₹2,150 savings'),
               ),
             ],
           ),
@@ -216,10 +221,7 @@ class ReportHistoryCard extends StatelessWidget {
         children: [
           const CircleAvatar(
             backgroundColor: Color(0xFFE4F3E8),
-            child: Icon(
-              Icons.description_outlined,
-              color: Color(0xFF167447),
-            ),
+            child: Icon(Icons.description_outlined, color: Color(0xFF167447)),
           ),
           const SizedBox(width: 14),
           Expanded(
@@ -227,7 +229,7 @@ class ReportHistoryCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '$crop Analysis',
+                  tr(context, '$crop Analysis'),
                   style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontWeight: FontWeight.bold,

@@ -1,3 +1,5 @@
+import '../l10n/app_text.dart';
+
 import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
@@ -20,10 +22,7 @@ class ReportScreen extends StatelessWidget {
             padding: const pw.EdgeInsets.only(bottom: 12),
             decoration: const pw.BoxDecoration(
               border: pw.Border(
-                bottom: pw.BorderSide(
-                  color: PdfColors.green700,
-                  width: 2,
-                ),
+                bottom: pw.BorderSide(color: PdfColors.green700, width: 2),
               ),
             ),
             child: pw.Row(
@@ -31,7 +30,7 @@ class ReportScreen extends StatelessWidget {
               children: [
                 pw.Text(
                   'FERTISIM',
-                  style: pw.TextStyle(
+                  style: const pw.TextStyle(
                     color: PdfColors.green800,
                     fontSize: 22,
                     fontWeight: pw.FontWeight.bold,
@@ -54,10 +53,7 @@ class ReportScreen extends StatelessWidget {
             margin: const pw.EdgeInsets.only(top: 12),
             child: pw.Text(
               'Page ${context.pageNumber} of ${context.pagesCount}',
-              style: const pw.TextStyle(
-                color: PdfColors.grey600,
-                fontSize: 10,
-              ),
+              style: const pw.TextStyle(color: PdfColors.grey600, fontSize: 10),
             ),
           );
         },
@@ -67,7 +63,7 @@ class ReportScreen extends StatelessWidget {
             pw.Text(
               'Fertilizer Reduction and Crop Performance Assessment',
               textAlign: pw.TextAlign.center,
-              style: pw.TextStyle(
+              style: const pw.TextStyle(
                 fontSize: 18,
                 fontWeight: pw.FontWeight.bold,
                 color: PdfColors.green800,
@@ -77,70 +73,50 @@ class ReportScreen extends StatelessWidget {
             pw.Text(
               'AI-based decision-support report for sustainable fertilizer management',
               textAlign: pw.TextAlign.center,
-              style: const pw.TextStyle(
-                fontSize: 11,
-                color: PdfColors.grey700,
-              ),
+              style: const pw.TextStyle(fontSize: 11, color: PdfColors.grey700),
             ),
             pw.SizedBox(height: 24),
-            buildPdfSection(
-              'Farmer and Farm Details',
-              [
-                'Farmer: Demo Farmer',
-                'Crop: Rice',
-                'Season: Kharif',
-                'Land size: 2 Acres',
-                'Irrigation: Rainfed',
-              ],
-            ),
-            buildPdfSection(
-              'Soil Summary',
-              [
-                'Nitrogen: 245 kg/ha',
-                'Phosphorus: 22 kg/ha',
-                'Potassium: 280 kg/ha',
-                'Soil pH: 6.8',
-                'Organic Carbon: 0.62%',
-              ],
-            ),
-            buildPdfSection(
-              'Fertilizer Reduction Plan',
-              [
-                'Selected fertilizer: Urea',
-                'Reduction percentage: 10%',
-                'Original dose: 100 kg/ha',
-                'Reduced dose: 90 kg/ha',
-              ],
-            ),
-            buildPdfSection(
-              'Organic Fertilizer Recommendation',
-              [
-                'Farmyard Manure: 5 t/ha',
-                'Neem Cake: 200 kg/ha',
-                'Purpose: Maintain soil fertility and organic carbon.',
-              ],
-            ),
-            buildPdfSection(
-              'AI Prediction Results',
-              [
-                'Yield before reduction: 48.5 q/ha',
-                'Yield after reduction: 47.2 q/ha',
-                'Crop success probability: 86%',
-                'Soil health score: 80%',
-                'Original fertilizer cost: Rs. 12,500',
-                'Reduced fertilizer cost: Rs. 10,800',
-                'Estimated cost savings: Rs. 1,700',
-              ],
-            ),
+            buildPdfSection('Farmer and Farm Details', [
+              'Farmer: Demo Farmer',
+              'Crop: Rice',
+              'Season: Kharif',
+              'Land size: 2 Acres',
+              'Irrigation: Rainfed',
+            ]),
+            buildPdfSection('Soil Summary', [
+              'Nitrogen: 245 kg/ha',
+              'Phosphorus: 22 kg/ha',
+              'Potassium: 280 kg/ha',
+              'Soil pH: 6.8',
+              'Organic Carbon: 0.62%',
+            ]),
+            buildPdfSection('Fertilizer Reduction Plan', [
+              'Selected fertilizer: Urea',
+              'Reduction percentage: 10%',
+              'Original dose: 100 kg/ha',
+              'Reduced dose: 90 kg/ha',
+            ]),
+            buildPdfSection('Organic Fertilizer Recommendation', [
+              'Farmyard Manure: 5 t/ha',
+              'Neem Cake: 200 kg/ha',
+              'Purpose: Maintain soil fertility and organic carbon.',
+            ]),
+            buildPdfSection('AI Prediction Results', [
+              'Yield before reduction: 48.5 q/ha',
+              'Yield after reduction: 47.2 q/ha',
+              'Crop success probability: 86%',
+              'Soil health score: 80%',
+              'Original fertilizer cost: Rs. 12,500',
+              'Reduced fertilizer cost: Rs. 10,800',
+              'Estimated cost savings: Rs. 1,700',
+            ]),
             pw.SizedBox(height: 15),
             pw.Container(
               padding: const pw.EdgeInsets.all(12),
               decoration: pw.BoxDecoration(
                 color: PdfColors.amber50,
-                
-                border: pw.Border.all(
-                  color: PdfColors.amber700,
-                ),
+
+                border: pw.Border.all(color: PdfColors.amber700),
               ),
               child: pw.Text(
                 'Note: FERTISIM is a decision-support system. Farmers should '
@@ -159,22 +135,16 @@ class ReportScreen extends StatelessWidget {
     return pdf.save();
   }
 
-  pw.Widget buildPdfSection(
-    String title,
-    List<String> values,
-  ) {
+  pw.Widget buildPdfSection(String title, List<String> values) {
     return pw.Container(
       width: double.infinity,
       margin: const pw.EdgeInsets.only(bottom: 14),
       padding: const pw.EdgeInsets.all(14),
-      decoration: pw.BoxDecoration(
+      decoration: const pw.BoxDecoration(
         color: PdfColors.grey100,
-        
-        border: const pw.Border(
-          left: pw.BorderSide(
-            color: PdfColors.green700,
-            width: 4,
-          ),
+
+        border: pw.Border(
+          left: pw.BorderSide(color: PdfColors.green700, width: 4),
         ),
       ),
       child: pw.Column(
@@ -182,7 +152,7 @@ class ReportScreen extends StatelessWidget {
         children: [
           pw.Text(
             title,
-            style: pw.TextStyle(
+            style: const pw.TextStyle(
               color: PdfColors.green800,
               fontSize: 14,
               fontWeight: pw.FontWeight.bold,
@@ -194,10 +164,7 @@ class ReportScreen extends StatelessWidget {
               padding: const pw.EdgeInsets.only(bottom: 4),
               child: pw.Text(
                 value,
-                style: const pw.TextStyle(
-                  fontSize: 11,
-                  lineSpacing: 2,
-                ),
+                style: const pw.TextStyle(fontSize: 11, lineSpacing: 2),
               ),
             ),
           ),
@@ -213,7 +180,7 @@ class ReportScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Recommendation Report'),
+        title: Text(tr(context, 'Recommendation Report')),
       ),
       body: Center(
         child: Container(
@@ -234,15 +201,11 @@ class ReportScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                child: const Column(
+                child: Column(
                   children: [
-                    Icon(
-                      Icons.eco,
-                      color: Color(0xFF167447),
-                      size: 48,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
+                    const Icon(Icons.eco, color: Color(0xFF167447), size: 48),
+                    const SizedBox(height: 8),
+                    const Text(
                       'FERTISIM',
                       style: TextStyle(
                         color: Color(0xFF173D2A),
@@ -250,56 +213,66 @@ class ReportScreen extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 4),
+                    const SizedBox(height: 4),
                     Text(
-                      'Fertilizer Reduction Recommendation Report',
+                      tr(context, 'Fertilizer Reduction Recommendation Report'),
                       textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.grey),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 18),
-              const ReportSection(
-                title: 'Farmer & Farm Details',
-                content:
-                    'Farmer: Demo Farmer\n'
-                    'Crop: Rice\n'
-                    'Season: Kharif\n'
-                    'Land size: 2 Acres\n'
-                    'Irrigation: Rainfed',
+              ReportSection(
+                title: tr(context, 'Farmer & Farm Details'),
+                content: tr(
+                  context,
+                  'Farmer: Demo Farmer\n'
+                  'Crop: Rice\n'
+                  'Season: Kharif\n'
+                  'Land size: 2 Acres\n'
+                  'Irrigation: Rainfed',
+                ),
               ),
-              const ReportSection(
-                title: 'Soil Summary',
-                content:
-                    'Nitrogen: 245 kg/ha\n'
-                    'Phosphorus: 22 kg/ha\n'
-                    'Potassium: 280 kg/ha\n'
-                    'pH: 6.8\n'
-                    'Organic Carbon: 0.62%',
+              ReportSection(
+                title: tr(context, 'Soil Summary'),
+                content: tr(
+                  context,
+                  'Nitrogen: 245 kg/ha\n'
+                  'Phosphorus: 22 kg/ha\n'
+                  'Potassium: 280 kg/ha\n'
+                  'pH: 6.8\n'
+                  'Organic Carbon: 0.62%',
+                ),
               ),
-              const ReportSection(
-                title: 'Fertilizer Reduction Plan',
-                content:
-                    'Selected fertilizer: Urea\n'
-                    'Reduction percentage: 10%\n'
-                    'Original dose: 100 kg/ha\n'
-                    'Reduced dose: 90 kg/ha',
+              ReportSection(
+                title: tr(context, 'Fertilizer Reduction Plan'),
+                content: tr(
+                  context,
+                  'Selected fertilizer: Urea\n'
+                  'Reduction percentage: 10%\n'
+                  'Original dose: 100 kg/ha\n'
+                  'Reduced dose: 90 kg/ha',
+                ),
               ),
-              const ReportSection(
-                title: 'Organic Recommendation',
-                content:
-                    'Farmyard Manure: 5 t/ha\n'
-                    'Neem Cake: 200 kg/ha\n'
-                    'Purpose: Maintain soil fertility and organic carbon.',
+              ReportSection(
+                title: tr(context, 'Organic Recommendation'),
+                content: tr(
+                  context,
+                  'Farmyard Manure: 5 t/ha\n'
+                  'Neem Cake: 200 kg/ha\n'
+                  'Purpose: Maintain soil fertility and organic carbon.',
+                ),
               ),
-              const ReportSection(
-                title: 'AI Predictions',
-                content:
-                    'Yield after reduction: 47.2 q/ha\n'
-                    'Crop success probability: 86%\n'
-                    'Soil health score: 80%\n'
-                    'Estimated cost savings: Rs. 1,700',
+              ReportSection(
+                title: tr(context, 'AI Predictions'),
+                content: tr(
+                  context,
+                  'Yield after reduction: 47.2 q/ha\n'
+                  'Crop success probability: 86%\n'
+                  'Soil health score: 80%\n'
+                  'Estimated cost savings: Rs. 1,700',
+                ),
               ),
               const SizedBox(height: 18),
               SizedBox(
@@ -319,18 +292,16 @@ class ReportScreen extends StatelessWidget {
                       ScaffoldMessenger.of(context).showSnackBar(
                         SnackBar(
                           content: Text(
-                            'Unable to generate PDF: $error',
+                            tr(context, 'Unable to generate PDF: $error'),
                           ),
                         ),
                       );
                     }
                   },
                   icon: const Icon(Icons.download_rounded),
-                  label: const Text(
-                    'Download PDF',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  label: Text(
+                    tr(context, 'Download PDF'),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFF167447),
@@ -346,18 +317,16 @@ class ReportScreen extends StatelessWidget {
                 child: OutlinedButton.icon(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('Report saved successfully'),
+                      SnackBar(
+                        content: Text(tr(context, 'Report saved successfully')),
                       ),
                     );
                   },
                   icon: const Icon(Icons.bookmark_add_outlined),
-                  label: const Text('Save Report'),
+                  label: Text(tr(context, 'Save Report')),
                   style: OutlinedButton.styleFrom(
                     foregroundColor: const Color(0xFF167447),
-                    side: const BorderSide(
-                      color: Color(0xFF167447),
-                    ),
+                    side: const BorderSide(color: Color(0xFF167447)),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(16),
                     ),
@@ -376,11 +345,7 @@ class ReportSection extends StatelessWidget {
   final String title;
   final String content;
 
-  const ReportSection({
-    super.key,
-    required this.title,
-    required this.content,
-  });
+  const ReportSection({super.key, required this.title, required this.content});
 
   @override
   Widget build(BuildContext context) {
@@ -391,10 +356,7 @@ class ReportSection extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(18),
         border: const Border(
-          left: BorderSide(
-            color: Color(0xFF167447),
-            width: 5,
-          ),
+          left: BorderSide(color: Color(0xFF167447), width: 5),
         ),
         boxShadow: const [
           BoxShadow(
@@ -418,10 +380,7 @@ class ReportSection extends StatelessWidget {
           const SizedBox(height: 9),
           Text(
             content,
-            style: const TextStyle(
-              color: Color(0xFF4F5F55),
-              height: 1.6,
-            ),
+            style: const TextStyle(color: Color(0xFF4F5F55), height: 1.6),
           ),
         ],
       ),

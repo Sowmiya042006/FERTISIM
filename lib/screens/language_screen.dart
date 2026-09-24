@@ -1,4 +1,7 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
+
 import 'login_screen.dart';
 import '../locale_controller.dart';
 
@@ -28,7 +31,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Select Language'),
+        title: Text(tr(context, 'Select Language')),
         centerTitle: true,
       ),
       body: SafeArea(
@@ -49,20 +52,20 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   ),
                 ),
                 const SizedBox(height: 18),
-                const Text(
-                  'Choose your preferred language',
+                Text(
+                  tr(context, 'Choose your preferred language'),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 23,
                     fontWeight: FontWeight.bold,
                     color: Color(0xFF173D2A),
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'You can change this later from settings',
+                Text(
+                  tr(context, 'You can change this later from settings'),
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Colors.grey),
+                  style: const TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 28),
                 Expanded(
@@ -70,15 +73,14 @@ class _LanguageScreenState extends State<LanguageScreen> {
                     itemCount: languages.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      crossAxisSpacing: 14,
-                      mainAxisSpacing: 14,
-                      childAspectRatio: 1.55,
-                    ),
+                          crossAxisCount: 2,
+                          crossAxisSpacing: 14,
+                          mainAxisSpacing: 14,
+                          childAspectRatio: 1.55,
+                        ),
                     itemBuilder: (context, index) {
                       final language = languages[index];
-                      final isSelected =
-                          selectedLanguage == language['name'];
+                      final isSelected = selectedLanguage == language['name'];
 
                       return InkWell(
                         borderRadius: BorderRadius.circular(18),
@@ -153,26 +155,26 @@ class _LanguageScreenState extends State<LanguageScreen> {
                   height: 54,
                   child: FilledButton(
                     onPressed: () {
-  const languageCodes = {
-    'English': 'en',
-    'Tamil': 'ta',
-    'Hindi': 'hi',
-    'Telugu': 'te',
-    'Malayalam': 'ml',
-    'Kannada': 'kn',
-  };
+                      final languageCodes = {
+                        'English': 'en',
+                        'Tamil': 'ta',
+                        'Hindi': 'hi',
+                        'Telugu': 'te',
+                        'Malayalam': 'ml',
+                        'Kannada': 'kn',
+                      };
 
-  appLocale.value = Locale(
-    languageCodes[selectedLanguage] ?? 'en',
-  );
+                      appLocale.value = Locale(
+                        languageCodes[selectedLanguage] ?? 'en',
+                      );
 
-  Navigator.pushReplacement(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const LoginScreen(),
-    ),
-  );
-},
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const LoginScreen(),
+                        ),
+                      );
+                    },
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF167447),
                       shape: RoundedRectangleBorder(
@@ -180,7 +182,7 @@ class _LanguageScreenState extends State<LanguageScreen> {
                       ),
                     ),
                     child: Text(
-                      'Continue with $selectedLanguage',
+                      "${tr(context, 'Continue')} • $selectedLanguage",
                       style: const TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,

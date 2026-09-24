@@ -1,3 +1,5 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -19,7 +21,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Create Account'),
+        title: Text(tr(context, 'Create Account')),
       ),
       body: SafeArea(
         child: Center(
@@ -54,10 +56,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   const SizedBox(height: 18),
-                  const Center(
+                  Center(
                     child: Text(
-                      'Join FERTISIM',
-                      style: TextStyle(
+                      tr(context, 'Join FERTISIM'),
+                      style: const TextStyle(
                         color: Color(0xFF173D2A),
                         fontSize: 25,
                         fontWeight: FontWeight.bold,
@@ -65,26 +67,26 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                   ),
                   const SizedBox(height: 7),
-                  const Center(
+                  Center(
                     child: Text(
-                      'Create your farmer account',
-                      style: TextStyle(color: Colors.grey),
+                      tr(context, 'Create your farmer account'),
+                      style: const TextStyle(color: Colors.grey),
                     ),
                   ),
                   const SizedBox(height: 25),
                   buildField(
-                    label: 'Full name',
+                    label: tr(context, 'Full name'),
                     icon: Icons.person_outline,
                   ),
                   const SizedBox(height: 16),
                   buildField(
-                    label: 'Mobile number',
+                    label: tr(context, 'Mobile number'),
                     icon: Icons.phone_outlined,
                     keyboardType: TextInputType.phone,
                   ),
                   const SizedBox(height: 16),
                   buildField(
-                    label: 'Email address',
+                    label: tr(context, 'Email address'),
                     icon: Icons.email_outlined,
                     keyboardType: TextInputType.emailAddress,
                   ),
@@ -92,7 +94,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextField(
                     obscureText: hidePassword,
                     decoration: fieldDecoration(
-                      label: 'Password',
+                      label: tr(context, 'Password'),
                       icon: Icons.lock_outline,
                       suffix: IconButton(
                         onPressed: () {
@@ -112,7 +114,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   TextField(
                     obscureText: hideConfirmPassword,
                     decoration: fieldDecoration(
-                      label: 'Confirm password',
+                      label: tr(context, 'Confirm password'),
                       icon: Icons.lock_reset_outlined,
                       suffix: IconButton(
                         onPressed: () {
@@ -139,9 +141,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         acceptedTerms = value ?? false;
                       });
                     },
-                    title: const Text(
-                      'I agree to the Terms and Privacy Policy',
-                      style: TextStyle(fontSize: 13),
+                    title: Text(
+                      tr(context, 'I agree to the Terms and Privacy Policy'),
+                      style: const TextStyle(fontSize: 13),
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -150,25 +152,27 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 54,
                     child: FilledButton(
                       onPressed: acceptedTerms
-    ? () {
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(
-            content: Text('Account created successfully'),
-          ),
-        );
+                          ? () {
+                              ScaffoldMessenger.of(context).showSnackBar(
+                                SnackBar(
+                                  content: Text(
+                                    tr(context, 'Account created successfully'),
+                                  ),
+                                ),
+                              );
 
-        Navigator.pop(context);
-      }
-    : null,
+                              Navigator.pop(context);
+                            }
+                          : null,
                       style: FilledButton.styleFrom(
                         backgroundColor: const Color(0xFF167447),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(16),
                         ),
                       ),
-                      child: const Text(
-                        'Create Account',
-                        style: TextStyle(
+                      child: Text(
+                        tr(context, 'Create Account'),
+                        style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
@@ -179,14 +183,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Already have an account?'),
+                      Text(tr(context, 'Already have an account?')),
                       TextButton(
                         onPressed: () {
                           Navigator.pop(context);
                         },
-                        child: const Text(
-                          'Login',
-                          style: TextStyle(fontWeight: FontWeight.bold),
+                        child: Text(
+                          tr(context, 'Login'),
+                          style: const TextStyle(fontWeight: FontWeight.bold),
                         ),
                       ),
                     ],
@@ -207,10 +211,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
   }) {
     return TextField(
       keyboardType: keyboardType,
-      decoration: fieldDecoration(
-        label: label,
-        icon: icon,
-      ),
+      decoration: fieldDecoration(label: label, icon: icon),
     );
   }
 

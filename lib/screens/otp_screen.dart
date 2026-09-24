@@ -1,3 +1,5 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
 
 import 'dashboard_screen.dart';
@@ -25,7 +27,7 @@ class _OtpScreenState extends State<OtpScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('OTP Verification'),
+        title: Text(tr(context, 'OTP Verification')),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -56,23 +58,23 @@ class _OtpScreenState extends State<OtpScreen> {
                   ),
                 ),
                 const SizedBox(height: 20),
-                const Text(
-                  'Enter Verification Code',
+                Text(
+                  tr(context, 'Enter Verification Code'),
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Enter the 6-digit OTP sent to your registered mobile number.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(
-                    color: Colors.grey,
-                    height: 1.5,
+                Text(
+                  tr(
+                    context,
+                    'Enter the 6-digit OTP sent to your registered mobile number.',
                   ),
+                  textAlign: TextAlign.center,
+                  style: const TextStyle(color: Colors.grey, height: 1.5),
                 ),
                 const SizedBox(height: 26),
                 TextField(
@@ -102,32 +104,34 @@ class _OtpScreenState extends State<OtpScreen> {
                   height: 54,
                   child: FilledButton(
                     onPressed: () {
-  if (otpController.text.length != 6) {
-    ScaffoldMessenger.of(context).showSnackBar(
-      const SnackBar(
-        content: Text('Please enter a valid 6-digit OTP'),
-      ),
-    );
-    return;
-  }
+                      if (otpController.text.length != 6) {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              tr(context, 'Please enter a valid 6-digit OTP'),
+                            ),
+                          ),
+                        );
+                        return;
+                      }
 
-  Navigator.pushAndRemoveUntil(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const DashboardScreen(),
-    ),
-    (route) => false,
-  );
-},
+                      Navigator.pushAndRemoveUntil(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const DashboardScreen(),
+                        ),
+                        (route) => false,
+                      );
+                    },
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF167447),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text(
-                      'Verify OTP',
-                      style: TextStyle(
+                    child: Text(
+                      tr(context, 'Verify OTP'),
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -138,14 +142,10 @@ class _OtpScreenState extends State<OtpScreen> {
                 TextButton(
                   onPressed: () {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      const SnackBar(
-                        content: Text('OTP sent again'),
-                      ),
+                      SnackBar(content: Text(tr(context, 'OTP sent again'))),
                     );
                   },
-                  child: const Text(
-                    'Didn’t receive OTP? Resend',
-                  ),
+                  child: Text(tr(context, 'Didn’t receive OTP? Resend')),
                 ),
               ],
             ),

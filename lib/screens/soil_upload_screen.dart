@@ -1,5 +1,8 @@
+import '../l10n/app_text.dart';
+
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/material.dart';
+
 import 'farm_analysis_screen.dart';
 
 class SoilUploadScreen extends StatefulWidget {
@@ -12,18 +15,18 @@ class SoilUploadScreen extends StatefulWidget {
 class _SoilUploadScreenState extends State<SoilUploadScreen> {
   PlatformFile? selectedFile;
 
- Future<void> pickSoilCard() async {
-  final file = await FilePicker.pickFile(
-    type: FileType.custom,
-    allowedExtensions: ['pdf', 'jpg', 'jpeg', 'png'],
-  );
+  Future<void> pickSoilCard() async {
+    final file = await FilePicker.pickFile(
+      type: FileType.custom,
+      allowedExtensions: ['pdf', 'jpg', 'jpeg', 'png'],
+    );
 
-  if (file != null) {
-    setState(() {
-      selectedFile = file;
-    });
+    if (file != null) {
+      setState(() {
+        selectedFile = file;
+      });
+    }
   }
-}
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,7 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Upload Soil Health Card'),
+        title: Text(tr(context, 'Upload Soil Health Card')),
       ),
       body: SafeArea(
         child: Center(
@@ -42,9 +45,9 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'Step 1 of 4',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Step 1 of 4'),
+                  style: const TextStyle(
                     color: Color(0xFF167447),
                     fontWeight: FontWeight.bold,
                   ),
@@ -58,18 +61,21 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                   color: Color(0xFF167447),
                 ),
                 const SizedBox(height: 28),
-                const Text(
-                  'Upload your soil report',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Upload your soil report'),
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 8),
-                const Text(
-                  'Choose a clear PDF or image of your Soil Health Card.',
-                  style: TextStyle(color: Colors.grey),
+                Text(
+                  tr(
+                    context,
+                    'Choose a clear PDF or image of your Soil Health Card.',
+                  ),
+                  style: const TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 25),
                 InkWell(
@@ -107,8 +113,8 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                         const SizedBox(height: 16),
                         Text(
                           selectedFile == null
-                              ? 'Tap to choose a file'
-                              : 'Soil report selected',
+                              ? tr(context, 'Tap to choose a file')
+                              : tr(context, 'Soil report selected'),
                           style: const TextStyle(
                             color: Color(0xFF173D2A),
                             fontSize: 17,
@@ -118,7 +124,10 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                         const SizedBox(height: 7),
                         Text(
                           selectedFile?.name ??
-                              'Supported formats: PDF, JPG and PNG',
+                              tr(
+                                context,
+                                'Supported formats: PDF, JPG and PNG',
+                              ),
                           textAlign: TextAlign.center,
                           style: const TextStyle(color: Colors.grey),
                         ),
@@ -132,7 +141,7 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                     child: TextButton.icon(
                       onPressed: pickSoilCard,
                       icon: const Icon(Icons.refresh),
-                      label: const Text('Replace file'),
+                      label: Text(tr(context, 'Replace file')),
                     ),
                   ),
                 const SizedBox(height: 20),
@@ -142,18 +151,18 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                     color: const Color(0xFFFFF4D6),
                     borderRadius: BorderRadius.circular(16),
                   ),
-                  child: const Row(
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Icon(
-                        Icons.info_outline,
-                        color: Color(0xFF936B00),
-                      ),
-                      SizedBox(width: 12),
+                      const Icon(Icons.info_outline, color: Color(0xFF936B00)),
+                      const SizedBox(width: 12),
                       Expanded(
                         child: Text(
-                          'The app will extract N, P, K, pH and organic carbon values from your report.',
-                          style: TextStyle(
+                          tr(
+                            context,
+                            'The app will extract N, P, K, pH and organic carbon values from your report.',
+                          ),
+                          style: const TextStyle(
                             color: Color(0xFF6C5100),
                             height: 1.4,
                           ),
@@ -168,24 +177,25 @@ class _SoilUploadScreenState extends State<SoilUploadScreen> {
                   height: 55,
                   child: FilledButton(
                     onPressed: selectedFile == null
-    ? null
-    : () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => const FarmAnalysisScreen(),
-          ),
-        );
-      },
+                        ? null
+                        : () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    const FarmAnalysisScreen(),
+                              ),
+                            );
+                          },
                     style: FilledButton.styleFrom(
                       backgroundColor: const Color(0xFF167447),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
-                    child: const Text(
-                      'Extract Soil Values',
-                      style: TextStyle(
+                    child: Text(
+                      tr(context, 'Extract Soil Values'),
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),

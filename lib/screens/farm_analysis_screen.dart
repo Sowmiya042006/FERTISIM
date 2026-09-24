@@ -1,5 +1,9 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
+
 import 'report_screen.dart';
+
 class FarmAnalysisScreen extends StatefulWidget {
   const FarmAnalysisScreen({super.key});
 
@@ -42,7 +46,7 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Farm Analysis'),
+        title: Text(tr(context, 'Farm Analysis')),
       ),
       body: SafeArea(
         child: Center(
@@ -51,72 +55,94 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
             child: ListView(
               padding: const EdgeInsets.all(20),
               children: [
-                const Text(
-                  'Farm Information',
-                  style: TextStyle(
+                Text(
+                  tr(context, 'Farm Information'),
+                  style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 const SizedBox(height: 7),
-                const Text(
-                  'Enter the values required for fertilizer simulation.',
-                  style: TextStyle(color: Colors.grey),
+                Text(
+                  tr(
+                    context,
+                    'Enter the values required for fertilizer simulation.',
+                  ),
+                  style: const TextStyle(color: Colors.grey),
                 ),
                 const SizedBox(height: 24),
 
-                const SectionTitle(
+                SectionTitle(
                   icon: Icons.science_outlined,
-                  title: 'Soil Information',
+                  title: tr(context, 'Soil Information'),
                 ),
                 const SizedBox(height: 14),
                 Row(
                   children: [
-                    Expanded(child: numberField('Nitrogen', suffix: 'kg/ha')),
+                    Expanded(
+                      child: numberField(
+                        tr(context, 'Nitrogen'),
+                        suffix: 'kg/ha',
+                      ),
+                    ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: numberField('Phosphorus', suffix: 'kg/ha'),
+                      child: numberField(
+                        tr(context, 'Phosphorus'),
+                        suffix: 'kg/ha',
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 12),
                 Row(
                   children: [
-                    Expanded(child: numberField('Potassium', suffix: 'kg/ha')),
+                    Expanded(
+                      child: numberField(
+                        tr(context, 'Potassium'),
+                        suffix: 'kg/ha',
+                      ),
+                    ),
                     const SizedBox(width: 12),
-                    Expanded(child: numberField('Soil pH')),
+                    Expanded(child: numberField(tr(context, 'Soil pH'))),
                   ],
                 ),
                 const SizedBox(height: 12),
                 Row(
                   children: [
                     Expanded(
-                      child: numberField('Organic Carbon', suffix: '%'),
+                      child: numberField(
+                        tr(context, 'Organic Carbon'),
+                        suffix: '%',
+                      ),
                     ),
                     const SizedBox(width: 12),
                     Expanded(
-                      child: numberField('EC (optional)', suffix: 'dS/m'),
+                      child: numberField(
+                        tr(context, 'EC (optional)'),
+                        suffix: 'dS/m',
+                      ),
                     ),
                   ],
                 ),
                 const SizedBox(height: 12),
-                numberField('Moisture (optional)', suffix: '%'),
+                numberField(tr(context, 'Moisture (optional)'), suffix: '%'),
 
                 const SizedBox(height: 28),
-                const SectionTitle(
+                SectionTitle(
                   icon: Icons.grass_rounded,
-                  title: 'Crop Information',
+                  title: tr(context, 'Crop Information'),
                 ),
                 const SizedBox(height: 14),
                 DropdownButtonFormField<String>(
                   initialValue: crop,
-                  decoration: inputStyle('Crop'),
+                  decoration: inputStyle(tr(context, 'Crop')),
                   items: ['Rice', 'Wheat', 'Maize', 'Groundnut', 'Soybean']
                       .map(
                         (item) => DropdownMenuItem(
                           value: item,
-                          child: Text(item),
+                          child: Text(tr(context, item)),
                         ),
                       )
                       .toList(),
@@ -129,12 +155,12 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                 const SizedBox(height: 12),
                 DropdownButtonFormField<String>(
                   initialValue: season,
-                  decoration: inputStyle('Season'),
+                  decoration: inputStyle(tr(context, 'Season')),
                   items: ['Kharif', 'Rabi', 'Summer']
                       .map(
                         (item) => DropdownMenuItem(
                           value: item,
-                          child: Text(item),
+                          child: Text(tr(context, item)),
                         ),
                       )
                       .toList(),
@@ -146,24 +172,24 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                 ),
 
                 const SizedBox(height: 28),
-                const SectionTitle(
+                SectionTitle(
                   icon: Icons.landscape_outlined,
-                  title: 'Land and Irrigation',
+                  title: tr(context, 'Land and Irrigation'),
                 ),
                 const SizedBox(height: 14),
                 Row(
                   children: [
-                    Expanded(child: numberField('Land size')),
+                    Expanded(child: numberField(tr(context, 'Land size'))),
                     const SizedBox(width: 12),
                     Expanded(
                       child: DropdownButtonFormField<String>(
                         initialValue: landUnit,
-                        decoration: inputStyle('Unit'),
+                        decoration: inputStyle(tr(context, 'Unit')),
                         items: ['Acres', 'Hectares']
                             .map(
                               (item) => DropdownMenuItem(
                                 value: item,
-                                child: Text(item),
+                                child: Text(tr(context, item)),
                               ),
                             )
                             .toList(),
@@ -179,12 +205,12 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                 const SizedBox(height: 12),
                 DropdownButtonFormField<String>(
                   initialValue: irrigation,
-                  decoration: inputStyle('Irrigation type'),
+                  decoration: inputStyle(tr(context, 'Irrigation type')),
                   items: ['Drip', 'Sprinkler', 'Flood', 'Rainfed']
                       .map(
                         (item) => DropdownMenuItem(
                           value: item,
-                          child: Text(item),
+                          child: Text(tr(context, item)),
                         ),
                       )
                       .toList(),
@@ -196,19 +222,19 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                 ),
 
                 const SizedBox(height: 28),
-                const SectionTitle(
+                SectionTitle(
                   icon: Icons.eco_outlined,
-                  title: 'Fertilizer Reduction',
+                  title: tr(context, 'Fertilizer Reduction'),
                 ),
                 const SizedBox(height: 14),
                 DropdownButtonFormField<String>(
                   initialValue: fertilizer,
-                  decoration: inputStyle('Fertilizer to reduce'),
+                  decoration: inputStyle(tr(context, 'Fertilizer to reduce')),
                   items: ['Urea', 'DAP', 'MOP', 'NPK']
                       .map(
                         (item) => DropdownMenuItem(
                           value: item,
-                          child: Text(item),
+                          child: Text(tr(context, item)),
                         ),
                       )
                       .toList(),
@@ -220,7 +246,7 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                 ),
                 const SizedBox(height: 18),
                 Text(
-                  'Reduction: ${reduction.toInt()}%',
+                  tr(context, 'Reduction: ${reduction.toInt()}%'),
                   style: const TextStyle(
                     color: Color(0xFF173D2A),
                     fontWeight: FontWeight.bold,
@@ -256,9 +282,9 @@ class _FarmAnalysisScreenState extends State<FarmAnalysisScreen> {
                       );
                     },
                     icon: const Icon(Icons.auto_graph_rounded),
-                    label: const Text(
-                      'Run AI Simulation',
-                      style: TextStyle(
+                    label: Text(
+                      tr(context, 'Run AI Simulation'),
+                      style: const TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                       ),
@@ -284,11 +310,7 @@ class SectionTitle extends StatelessWidget {
   final IconData icon;
   final String title;
 
-  const SectionTitle({
-    super.key,
-    required this.icon,
-    required this.title,
-  });
+  const SectionTitle({super.key, required this.icon, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -331,7 +353,7 @@ class SimulationResultScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('AI Simulation Results'),
+        title: Text(tr(context, 'AI Simulation Results')),
       ),
       body: Center(
         child: Container(
@@ -343,10 +365,7 @@ class SimulationResultScreen extends StatelessWidget {
                 padding: const EdgeInsets.all(22),
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
-                    colors: [
-                      Color(0xFF0B5D32),
-                      Color(0xFF3A9D5D),
-                    ],
+                    colors: [Color(0xFF0B5D32), Color(0xFF3A9D5D)],
                   ),
                   borderRadius: BorderRadius.circular(22),
                 ),
@@ -358,9 +377,9 @@ class SimulationResultScreen extends StatelessWidget {
                       size: 48,
                     ),
                     const SizedBox(height: 10),
-                    const Text(
-                      'Simulation Completed',
-                      style: TextStyle(
+                    Text(
+                      tr(context, 'Simulation Completed'),
+                      style: const TextStyle(
                         color: Colors.white,
                         fontSize: 22,
                         fontWeight: FontWeight.bold,
@@ -368,43 +387,43 @@ class SimulationResultScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 6),
                     Text(
-                      '$crop • $fertilizer reduced by $reduction%',
+                      tr(context, '$crop • $fertilizer reduced by $reduction%'),
                       style: const TextStyle(color: Colors.white70),
                     ),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              const ResultCard(
+              ResultCard(
                 icon: Icons.agriculture,
-                title: 'Yield Prediction',
+                title: tr(context, 'Yield Prediction'),
                 before: '48.5 q/ha',
                 after: '47.2 q/ha',
-                status: 'Only 2.7% change',
+                status: tr(context, 'Only 2.7% change'),
                 color: Color(0xFF2E7D32),
               ),
-              const ResultCard(
+              ResultCard(
                 icon: Icons.trending_up,
-                title: 'Crop Success Probability',
+                title: tr(context, 'Crop Success Probability'),
                 before: '89%',
                 after: '86%',
-                status: 'High success',
+                status: tr(context, 'High success'),
                 color: Color(0xFF1976D2),
               ),
-              const ResultCard(
+              ResultCard(
                 icon: Icons.eco,
-                title: 'Soil Health',
+                title: tr(context, 'Soil Health'),
                 before: '72%',
                 after: '80%',
-                status: 'Improved by 8%',
+                status: tr(context, 'Improved by 8%'),
                 color: Color(0xFFE08A00),
               ),
-              const ResultCard(
+              ResultCard(
                 icon: Icons.currency_rupee,
-                title: 'Fertilizer Cost',
+                title: tr(context, 'Fertilizer Cost'),
                 before: '₹12,500',
                 after: '₹10,800',
-                status: 'You save ₹1,700',
+                status: tr(context, 'You save ₹1,700'),
                 color: Color(0xFF7B4BB7),
               ),
               const SizedBox(height: 18),
@@ -414,29 +433,35 @@ class SimulationResultScreen extends StatelessWidget {
                   color: const Color(0xFFFFF4D6),
                   borderRadius: BorderRadius.circular(20),
                 ),
-                child: const Column(
+                child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      'Recommended Organic Alternative',
-                      style: TextStyle(
+                      tr(context, 'Recommended Organic Alternative'),
+                      style: const TextStyle(
                         color: Color(0xFF6C5100),
                         fontSize: 18,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Text(
-                      'Farmyard Manure: 5 t/ha\nNeem Cake: 200 kg/ha',
-                      style: TextStyle(
+                      tr(
+                        context,
+                        'Farmyard Manure: 5 t/ha\nNeem Cake: 200 kg/ha',
+                      ),
+                      style: const TextStyle(
                         color: Color(0xFF6C5100),
                         height: 1.6,
                       ),
                     ),
-                    SizedBox(height: 8),
+                    const SizedBox(height: 8),
                     Text(
-                      'Helps maintain soil organic carbon and compensates for reduced chemical fertilizer.',
-                      style: TextStyle(
+                      tr(
+                        context,
+                        'Helps maintain soil organic carbon and compensates for reduced chemical fertilizer.',
+                      ),
+                      style: const TextStyle(
                         color: Color(0xFF6C5100),
                         height: 1.4,
                       ),
@@ -449,17 +474,17 @@ class SimulationResultScreen extends StatelessWidget {
                 height: 55,
                 child: FilledButton.icon(
                   onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const ReportScreen(),
-    ),
-  );
-},
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const ReportScreen(),
+                      ),
+                    );
+                  },
                   icon: const Icon(Icons.picture_as_pdf_outlined),
-                  label: const Text(
-                    'View Recommendation Report',
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                  label: Text(
+                    tr(context, 'View Recommendation Report'),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   style: FilledButton.styleFrom(
                     backgroundColor: const Color(0xFF167447),
@@ -530,15 +555,12 @@ class ResultCard extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 8),
-                Text('Before: $before'),
-                Text('After reduction: $after'),
+                Text(tr(context, 'Before: $before')),
+                Text(tr(context, 'After reduction: $after')),
                 const SizedBox(height: 5),
                 Text(
                   status,
-                  style: TextStyle(
-                    color: color,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(color: color, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

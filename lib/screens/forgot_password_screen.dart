@@ -1,5 +1,9 @@
+import '../l10n/app_text.dart';
+
 import 'package:flutter/material.dart';
+
 import 'otp_screen.dart';
+
 class ForgotPasswordScreen extends StatelessWidget {
   const ForgotPasswordScreen({super.key});
 
@@ -10,7 +14,7 @@ class ForgotPasswordScreen extends StatelessWidget {
       appBar: AppBar(
         backgroundColor: const Color(0xFF0B5D32),
         foregroundColor: Colors.white,
-        title: const Text('Reset Password'),
+        title: Text(tr(context, 'Reset Password')),
       ),
       body: SafeArea(
         child: Center(
@@ -42,29 +46,29 @@ class ForgotPasswordScreen extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  const Text(
-                    'Forgot your password?',
+                  Text(
+                    tr(context, 'Forgot your password?'),
                     textAlign: TextAlign.center,
-                    style: TextStyle(
+                    style: const TextStyle(
                       color: Color(0xFF173D2A),
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   const SizedBox(height: 10),
-                  const Text(
-                    'Enter your registered mobile number or email. We will send you an OTP.',
-                    textAlign: TextAlign.center,
-                    style: TextStyle(
-                      color: Colors.grey,
-                      height: 1.5,
+                  Text(
+                    tr(
+                      context,
+                      'Enter your registered mobile number or email. We will send you an OTP.',
                     ),
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(color: Colors.grey, height: 1.5),
                   ),
                   const SizedBox(height: 28),
                   TextField(
                     keyboardType: TextInputType.emailAddress,
                     decoration: InputDecoration(
-                      labelText: 'Mobile number or email',
+                      labelText: tr(context, 'Mobile number or email'),
                       prefixIcon: const Icon(Icons.person_outline),
                       filled: true,
                       fillColor: const Color(0xFFF4F8F2),
@@ -80,17 +84,17 @@ class ForgotPasswordScreen extends StatelessWidget {
                     height: 54,
                     child: FilledButton.icon(
                       onPressed: () {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => const OtpScreen(),
-    ),
-  );
-},
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const OtpScreen(),
+                          ),
+                        );
+                      },
                       icon: const Icon(Icons.send_outlined),
-                      label: const Text(
-                        'Send OTP',
-                        style: TextStyle(
+                      label: Text(
+                        tr(context, 'Send OTP'),
+                        style: const TextStyle(
                           fontSize: 17,
                           fontWeight: FontWeight.bold,
                         ),
@@ -109,7 +113,7 @@ class ForgotPasswordScreen extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     icon: const Icon(Icons.arrow_back),
-                    label: const Text('Back to Login'),
+                    label: Text(tr(context, 'Back to Login')),
                   ),
                 ],
               ),
